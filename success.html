@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order confirmed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            background-color: #d7b784;
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .checkout-section {
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .price {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
+        }
+        .rounded-box {
+            display: flex; 
+            align-items: center; 
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+            position: relative;
+        }
+        .rounded-box img {
+            width: 30px;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+        .get-by-date {
+            margin-top: 20px;
+        }
+        .place-order-button {
+    background-color: white; 
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px; 
+    transition: background-color 0.3s;
+}
+
+        .apply-button-container {
+            display: flex;
+            align-items: center;
+        }
+        #apply-voucher-button {
+            margin-left: 500px; 
+        }
+    </style>
+    <script type="text/javascript">
+        Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+        }
+
+        window.onload = function()
+        {
+            var date = new Date();
+            var dateString = date.addDays(0).toISOString().split('T')[0];
+            document.getElementById("get-by-date").innerHTML = "Get by " + dateString;
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <h2>Order confirmed</h2>
+    </div>
+
+    <div class="container">
+         <div class="checkout-section">
+            <div class="header">
+                <span>Your order is on the way!</span>
+            </div>
+        </div>
+
+    <div class="checkout-section">
+        <div class="header">
+            <span>Merchandise Subtotal</span>
+        </div>
+        <div class="rounded-box">
+            <p id="merchandise-subtotal">₱ 0.00</p>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <div class ="header">
+            <span>Shipping Fee Subtotal</span>
+        </div>
+        <div class="rounded-box">
+            <p id="shipping-fee-subtotal">₱49.50</p>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <div class="header">
+            <span>Total</span>
+        </div>
+        <div class="rounded-box">
+            <p id="total-amount">₱0.00</p>
+        </div>
+    </div>
+
+
+
+<script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const totalFromCart = urlParams.get('total');
+
+    const subTotal = localStorage.getItem('totalAmount');
+    document.getElementById("merchandise-subtotal").innerText = '₱ ' + subTotal;
+
+    const totalAmountShipping = localStorage.getItem('totalAmountShipping');
+    document.getElementById("total-amount").innerText = '₱ ' + totalAmountShipping;
+});
+        </script>
+
+        <button class="place-order-button" onclick="location.href='index.html';">Back to products</button>
+
+    </div>
+</body>
+</html>

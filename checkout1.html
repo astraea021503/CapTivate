@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .banner {
+            background-color: #d7b784;
+            color: black;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .checkout-section {
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .price {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 14px;
+        }
+        .rounded-box {
+            display: flex; 
+            align-items: center; 
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 10px;
+            position: relative;
+        }
+        .rounded-box img {
+            width: 30px;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+        .get-by-date {
+            margin-top: 20px;
+        }
+        .place-order-button {
+    background-color: white; 
+    color: black;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 20px; 
+    transition: background-color 0.3s; 
+}
+
+
+        .apply-button-container {
+            display: flex;
+            align-items: center;
+        }
+        #apply-voucher-button {
+            margin-left: 500px; 
+        }
+    </style>
+    <script type="text/javascript">
+        Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+        }
+
+        window.onload = function()
+        {
+            var date = new Date();
+            var dateString = date.addDays(0).toISOString().split('T')[0];
+            document.getElementById("get-by-date").innerHTML = "Get by " + dateString;
+        }
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <a href="index.html" style="position: absolute; top: 10px; left: 10px; text-decoration: none; color: black; font-size: 18px;">Back</a>
+        <h2>Checkout</h2>
+    </div>
+
+    <div class="container">
+         <div class="checkout-section">
+            <div class="header">
+                <span>Delivery Option</span>
+                <a href="#">View all options &gt;</a>
+            </div>
+            <div class="rounded-box" id="standard-delivery-box">
+                <span style="position: absolute; top: 10px; left: 10px;">Standard Delivery</span>
+                <span class="price">₱49.50</span>
+                
+                <div id="get-by-date" class="get-by-date">Get by 26-30 Oct</div>
+            </div>
+        </div>
+
+         <div class="checkout-section">
+    <div class="header">
+        <span>Select Payment Method</span>
+        <a href="#">View all methods &gt;</a>
+    </div>
+    <div style="display: flex;">
+        <div class="rounded-box" style="flex: 1; margin-right: 10px;" id="cash-on-delivery-box">
+            <div class="cash-on-delivery" style="display: flex; align-items: center;">
+                
+                <p>Cash on Delivery</p>
+            </div>
+        </div>
+        <div class="rounded-box" style="flex: 1; margin-left: 10px;" id="gcash-wallet-box">
+            <div class="gcash-wallet" style="display: flex; align-items: center;">
+                
+                <p>Gcash e-Wallet</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="checkout-section">
+        <div class="header">
+            <span>Voucher Code</span>
+        </div>
+        <div class="rounded-box">
+            <div class="apply-button-container">
+                <input type="text" id="voucher-code-input" style="border: none; outline: none; padding: 5px; border-radius: 5px;" placeholder="Enter Voucher Code">
+                <button id="apply-voucher-button">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <div class="header">
+            <span>Merchandise Subtotal</span>
+        </div>
+        <div class="rounded-box">
+            <p id="merchandise-subtotal">₱ 0.00</p>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <div class ="header">
+            <span>Shipping Fee Subtotal</span>
+        </div>
+        <div class="rounded-box">
+            <p id="shipping-fee-subtotal">₱49.50</p>
+        </div>
+    </div>
+
+    <div class="checkout-section">
+        <div class="header">
+            <span>Total</span>
+        </div>
+        <div class="rounded-box">
+            <p id="total-amount">₱0.00</p>
+        </div>
+    </div>
+
+
+
+<script>
+            document.addEventListener("DOMContentLoaded", function () {
+    // Add a click event handler for the Cash on Delivery box
+    const cashOnDeliveryBox = document.getElementById("cash-on-delivery-box");
+    cashOnDeliveryBox.addEventListener("click", function () {
+        this.style.borderColor = "blue";
+        const gcashWalletBox = document.getElementById("gcash-wallet-box");
+        gcashWalletBox.style.borderColor = "";
+    });
+
+    const gcashWalletBox = document.getElementById("gcash-wallet-box");
+    gcashWalletBox.addEventListener("click", function () {
+        this.style.borderColor = "blue";
+        const cashOnDeliveryBox = document.getElementById("cash-on-delivery-box");
+        cashOnDeliveryBox.style.borderColor = "";
+    });
+
+    const standardDeliveryBox = document.getElementById("standard-delivery-box");
+    standardDeliveryBox.addEventListener("click", function () {
+        this.style.borderColor = "blue";
+    });
+
+    const usedVoucherCodes = [];
+
+    document.getElementById("apply-voucher-button").addEventListener("click", function () {
+        const voucherCodeInput = document.getElementById("voucher-code-input");
+        const totalAmount = document.getElementById("total-amount");
+        const applyButton = document.getElementById("apply-voucher-button");
+
+        const voucherCode = voucherCodeInput.value;
+        if (usedVoucherCodes.includes(voucherCode)) {
+            alert("Voucher code has already been used.");
+        } else {
+            if (voucherCode === "Gwapo_Si_Sir_Llyod100") {
+                const currentTotal = totalAmount.innerText;
+                const numericTotal = parseFloat(currentTotal.replace(/[^0-9.-]+/g, ""));
+                const newTotal = numericTotal - 100.0;
+                totalAmount.innerText = "₱ " + newTotal.toFixed(2);
+            } else if (voucherCode === "Piso_Deal") {
+                totalAmount.innerText = "₱ 1.00";
+            } else {
+                alert("Invalid voucher code. Please try again.");
+            }
+
+            voucherCodeInput.value = "";
+            usedVoucherCodes.push(voucherCode);
+            applyButton.disabled = true;
+        }
+    });
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const totalFromCart = urlParams.get('total');
+
+    
+    const parsedTotal = parseFloat(totalFromCart);
+
+    
+    if (!isNaN(parsedTotal)) {
+        document.getElementById("merchandise-subtotal").innerText = '₱ ' + parsedTotal.toFixed(2);
+
+        const shippingFee = 49.50;
+        const totalAmount = parsedTotal + shippingFee;
+        document.getElementById("total-amount").innerText = '₱ ' + totalAmount.toFixed(2);
+
+        localStorage.setItem('totalAmountShipping', totalAmount.toFixed(2));
+    } else {
+        
+        console.error("Invalid totalFromCart:", totalFromCart);
+        
+    }
+});
+        </script>
+
+
+        
+
+        
+
+        <button class="place-order-button" onclick="location.href='success.html';">Place Order</button>
+
+    </div>
+</body>
+</html>

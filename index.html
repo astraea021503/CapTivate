@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapTivate</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="logo1.png" alt="">
+        </a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about us</a>
+            <a href="#menu">menu</a>
+            <a href="#location">location</a>
+        </nav>
+        
+        <div class="icons">
+            <div hidden id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+
+        
+
+        <div id="cart-items" class="cart-items-container">
+    <!-- Dynamic cart items will be added here -->
+    <div id="total-price" class="total-price">Total: P0.00</div>
+    <a id="checkoutlink" href="checkout1.html?total=${totalAmount.toFixed(2)}" onclick="document.getElementById('checkoutlink').href = 'checkout1.html?total=' + totalAmount.toFixed(2)" class="btn1">Checkout Now</a>
+</div>
+
+    </header>
+
+
+<section class="home" id="home">
+
+    
+
+</section>
+
+
+
+<section class="about" id="about">
+    <h1 class="heading" style="color: black;">about us</span></h1>
+
+    <div class="row">
+        <div class="image">
+            <img src="about us.png" alt="">
+
+        </div>
+        <div class="content">
+            <h3>Our story</h3>
+            
+
+               <p>CapTivate is a dynamic brand dedicated to redefining headwear fashion. Strategically designed to resonate with style-savvy individuals, CapTivate offers a curated collection of caps that blend contemporary trends with everyday comfort. Each piece is crafted to complement diverse personalities and occasions, ensuring every customer finds a cap that feels uniquely theirs.<br> </p>
+               <p>At CapTivate, customer satisfaction is at the heart of everything. The brand’s commitment goes beyond fashion; it aims to create a community where individuals feel empowered to express themselves boldly. CapTivate invites you to explore its collection and discover how a simple cap can elevate your style and mood.</p>
+
+
+            
+
+        </div>
+        
+    </div>
+
+</section>
+
+<section class="menu" id="menu">
+
+    <h1 class="heading" style="color: black;">our products</span></h1>
+        <div class="box-container">
+
+            <div class="box">
+                <img src="1.png" alt="">
+                <h3>New Balance 6 Panel Classic Unisex Hat - Pink</h3>
+                <div class="price">₱897</div>
+                <button class="btn" onclick="addToCart('New Balance Unisex Hat Pink', '1.png', '₱897')">ADD TO CART</button>
+            </div>
+        
+
+        <div class="box">
+            <img src="2.png" alt="">
+            <h3>New Balance 6 Panel Classic Unisex Hat - Green</h3>
+            <div class="price">₱997</div>
+            <button class="btn" onclick="addToCart('New Balance Unisex Hat Green', '2.png', '₱997')">ADD TO CART</button>
+        </div>
+
+        <div class="box">
+            <img src="3.png" alt="">
+            <h3>Nike Unisex Bucket Hat - Black</h3>
+            <div class="price">₱837</div>
+            <button class="btn" onclick="addToCart('Nike Unisex Bucket Hat Black', '3.png', '₱837')">ADD TO CART</button>
+        </div>
+
+        <div class="box">
+            <img src="4.png" alt="">
+            <h3>New Balance 6 Panel Classic Unisex Hat - Blue</h3>
+            <div class="price">₱897</div>
+            <button class="btn" onclick="addToCart('New Balance Unisex Hat Blue', '4.png', '₱897')">ADD TO CART</button>
+        </div>
+
+        <div class="box">
+            <img src="5.png" alt="">
+            <h3>Nike Unisex Bucket Hat - Cargo Khaki</h3>
+            <div class="price">₱697</div>
+            <button class="btn" onclick="addToCart('Nike Unisex Bucket Hat Cargo Khaki', '5.png', '₱697')">ADD TO CART</button>
+        </div>
+
+        <div class="box">
+            <img src="6.png" alt="">
+            <h3>New Balance 6 Panel Classic Unisex Hat - White</h3>
+            <div class="price">₱977</div>
+            <button class="btn" onclick="addToCart('New Balance Unisex Hat White', '6.png', '₱977')">ADD TO CART</button>
+        </div>
+
+        <div class="box">
+            <img src="7.png" alt="">
+            <h3>New Balance 6 Panel Classic Unisex Hat - Beige</h3>
+            <div class="price">₱945</div>
+            <button class="btn" onclick="addToCart('New Balance Unisex Hat Beige', '7.png', '₱945')">ADD TO CART</button>
+        </div>
+
+        <div class="box">
+            <img src="8.png" alt="">
+            <h3>New Balance 6 Panel Athletic Unisex Hat - Black</h3>
+            <div class="price">₱936</div>
+            <button class="btn" onclick="addToCart('New Balance Athletic Unisex Hat Black', '8.png', '₱936')">ADD TO CART</button>
+        </div>
+
+        <div class="box">
+            <img src="9.png" alt="">
+            <h3>New Era 3930 Cooperstown Neyyanco Men's Caps - Navy</h3>
+            <div class="price">₱990</div>
+            <button class="btn" onclick="addToCart('New Era 3930 Cooperstown Neyyanco Navy', '9.png', '₱990')">ADD TO CART</button>
+        </div>
+
+    </div>
+    <br>
+
+
+
+    <section class="team" id="team">
+
+    <h1 class="heading" style="color: black;">our team</h1>
+
+ 
+    <div class="box-container" data-aos="fade-up">
+ 
+       <div class="box">
+          <img src="pic1.png" alt="">
+          <h3>Ann Margaret</h3>
+          <p>Leader</p>
+          <div class="share">
+             <a href="#" class="fab fa-facebook-f"></a>
+             <a href="#" class="fab fa-twitter"></a>
+             <a href="#" class="fab fa-instagram"></a>
+             <a href="#" class="fab fa-microsoft"></a>
+          </div>
+       </div>
+ 
+       <div class="box">
+          <img src="pic2.png" alt="">
+          <h3>Cyrus</h3>
+          <p>Member</p>
+          <div class="share">
+             <a href="#" class="fab fa-facebook-f"></a>
+             <a href="#" class="fab fa-twitter"></a>
+             <a href="#" class="fab fa-instagram"></a>
+             <a href="#" class="fab fa-microsoft"></a>
+          </div>
+       </div>
+ 
+       <div class="box">
+          <img src="pic3.png" alt="">
+          <h3>Wiljane</h3>
+          <p>Member</p>
+          <div class="share">
+             <a href="#" class="fab fa-facebook-f"></a>
+             <a href="#" class="fab fa-twitter"></a>
+             <a href="#" class="fab fa-instagram"></a>
+             <a href="#" class="fab fa-microsoft"></a>
+          </div>
+       </div>
+ 
+    </div>
+ 
+ </section>
+    
+
+
+<section class="contact" id="location">
+    <h1 class="heading" style="color: black;"><span></span>Location</h1>
+    <div class="row">
+
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.2104808632644!2d120.98448679999997!3d14.587078999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca21ac302015%3A0x92dcca0f915010d9!2sTechnological%20University%20of%20the%20Philippines%20(TUP)%20-%20Manila!5e0!3m2!1sen!2sph!4v1698906493483!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+<script>
+function navigateToCheckout() {
+    const totalPrice = 100; 
+
+    
+    const url = `checkout1.html?subtotal=${totalPrice}&shipping=49.50`;
+
+    
+    window.location.href = url;
+}
+</script>
+    
+
+
+
+
+
+
+</body>
+</html>
